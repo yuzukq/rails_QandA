@@ -9,8 +9,10 @@ class QuestionsController < ApplicationController
 
   end
 
-  # 質問の作成
+  # 質問の作成メソッド
+  # ルーティング設定により，questions/newにアクセスされたときに呼び出される
   def new
+    @question = Question.new
   end
 
   # 質問登録
@@ -27,5 +29,6 @@ class QuestionsController < ApplicationController
 
   # 質問の削除
   def detroy
+  end
 
 end
