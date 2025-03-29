@@ -1,10 +1,37 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* 質問一覧テーブルのスタイル */
+.questions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.questions-table th {
+  background-color: #f8f9fa;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.questions-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.questions-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.action-link {
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  margin-right: 4px;
+  display: inline-block;
+}
+
+.view-link {
+  background-color: #17a2b8;
+}
