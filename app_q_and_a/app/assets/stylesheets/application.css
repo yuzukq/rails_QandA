@@ -1,37 +1,201 @@
-/* 質問一覧テーブルのスタイル */
+/* 質問一覧(indexページ)のスタイル */
 .questions-table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-  background-color: #fff;
+  background-color: #d0f2ed;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .questions-table th {
-  background-color: #f8f9fa;
+  background-color: #a9c7c2;
   padding: 12px;
   text-align: left;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 2px solid #d3e4f6;
 }
 
 .questions-table td {
   padding: 12px;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #d3e4f5;
 }
 
 .questions-table tr:hover {
-  background-color: #f8f9fa;
+  background-color: #bad5ef;
 }
 
 .action-link {
   text-decoration: none;
   padding: 4px 8px;
   border-radius: 4px;
-  color: white;
+  color: rgb(185, 195, 219);
   margin-right: 4px;
   display: inline-block;
 }
 
 .view-link {
   background-color: #17a2b8;
+}
+
+.edit-button {
+  background-color: #28a745;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.action-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button {
+  background-color: #007bff;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/*以下フォームのスタイル*/
+.form-wrapper {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* エラーメッセージのスタイル */
+.error-messages {
+  background-color: #fff3f3;
+  color: #dc3545;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.error-messages li {
+  margin-bottom: 5px;
+}
+
+/* フォームフィールドのスタイル */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-field:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* 質問詳細ページのスタイル */
+.question-detail {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+.question-content-box {
+  margin-bottom: 40px;
+}
+
+.content-item {
+  margin-bottom: 20px;
+}
+
+.content-label {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.content-text {
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* 回答セクションのスタイル */
+.answers-section {
+  margin-top: 40px;
+}
+
+.section-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.answer-box {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+/* 回答フォームのスタイル */
+.answer-form {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* 戻るボタン */
+.back-button {
+  background-color: #6c757d;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
 }

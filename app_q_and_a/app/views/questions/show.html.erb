@@ -1,47 +1,64 @@
-<h1>質問詳細</h1>
+<div class="questions-container">
+  <div class="question-detail">
+    <h1 class="detail-title">質問詳細</h1>
 
-<p>
-  タイトル: <br>
-  <%= @question.title %>
-</p>
-<p>
-  名前: <br>
-  <%= @question.name %>
-</p>
-<p>
-  本文: <br>
-  <%= @question.content %>
-</p>
+    <div class="question-content-box">
+      <div class="content-item">
+        <h3 class="content-label">タイトル</h3>
+        <div class="content-text"><%= @question.title %></div>
+      </div>
+      
+      <div class="content-item">
+        <h3 class="content-label">名前</h3>
+        <div class="content-text"><%= @question.name %></div>
+      </div>
+      
+      <div class="content-item">
+        <h3 class="content-label">本文</h3>
+        <div class="content-text"><%= @question.content %></div>
+      </div>
+    </div>
 
-<h2>回答一覧</h2>
-<% @question.answers.each do |answer| %>
-  <p>
-    名前: <br>
-    <%= answer.name %>
-  </p>
-  <p>
-    本文: <br>
-    <%= answer.content %>
-  </p>
-  <p>
-    <%= link_to '回答削除',[answer.question, answer] ,
-    data: {turbo_method: 'delete', turbo_confirm: '本当に削除しますか?'}%>
-  </p>
-<% end %>
+    <div class="answers-section">
+      <h2 class="section-title">回答一覧</h2>
+      <% @question.answers.each do |answer| %>
+        <div class="answer-box">
+          <div class="content-item">
+            <h3 class="content-label">名前</h3>
+            <div class="content-text"><%= answer.name %></div>
+          </div>
+          
+          <div class="content-item">
+            <h3 class="content-label">本文</h3>
+            <div class="content-text"><%= answer.content %></div>
+          </div>
+          
+          <%= link_to '回答削除', [answer.question, answer],
+              data: {turbo_method: 'delete', turbo_confirm: '本当に削除しますか?'},
+              class: 'action-link delete-button' %>
+        </div>
+      <% end %>
 
-<h2>回答入力</h2>
-<%= form_with model: [@question, @question.answers.build] do |form| %>
-  <div>
-    <%= form.label :名前 %>
-    <%= form.text_field :name %>
+      <div class="answer-form">
+        <h2 class="section-title">回答入力</h2>
+        <%= form_with model: [@question, @question.answers.build] do |form| %>
+          <div class="form-group">
+            <%= form.label :name, '名前', class: 'form-label' %>
+            <%= form.text_field :name, class: 'form-field' %>
+          </div>
+          
+          <div class="form-group">
+            <%= form.label :content, '本文', class: 'form-label' %>
+            <%= form.text_area :content, class: 'form-field form-textarea' %>
+          </div>
+          
+          <div class="form-group">
+            <%= form.submit '回答する', class: 'action-button submit-button' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%= link_to '一覧表示に戻る', questions_path, class: 'action-button back-button' %>
   </div>
-  <div>
-    <%= form.label :本文 %>
-    <%= form.text_area :content %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to '一覧表示に戻る', questions_path %>
+</div>
