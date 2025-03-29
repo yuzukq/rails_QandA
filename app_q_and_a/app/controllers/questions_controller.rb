@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   # 質問一覧を表示
   def index
-    @questions = Question.all
+    @questions = Question.all #コントローラとviewとの間でスペルミスに注意　
     
   end
 
@@ -22,21 +22,34 @@ class QuestionsController < ApplicationController
     # Questionモデルの初期化
     @question = Question.new(question_params)
     # QuestionモデルをDBに保存
-    @question.save
-    # showアクションへリダイレクト
-    redirect_to @question
+    if @question.save
+      # showアクションへリダイレクト
+      redirect_to @question
+    else
+      render 'new', status: :unprocessable_entity #ステータスコード422で描画
+    end
   end
 
   # 質問編集
   def edit
+    @question = Question.find(params[:id])
   end
 
   # 質問更新
   def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render 'edit', status: :unprocessable_entity
+    end
   end
 
   # 質問の削除
-  def detroy
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to question_path
   end
 
   private

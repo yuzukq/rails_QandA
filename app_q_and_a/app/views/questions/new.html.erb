@@ -1,18 +1,2 @@
 <h1>新規質問投稿</h1> <%# Rubyフォームヘルパーでコントローラーで定義した@questionに合わせてhtmlが生成される　%>
-<%= form_with model: @question do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render partial: 'form' %>
