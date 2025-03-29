@@ -1,0 +1,47 @@
+<h1>質問詳細</h1>
+
+<p>
+  タイトル: <br>
+  <%= @question.title %>
+</p>
+<p>
+  名前: <br>
+  <%= @question.name %>
+</p>
+<p>
+  本文: <br>
+  <%= @question.content %>
+</p>
+
+<h2>回答一覧</h2>
+<% @question.answers.each do |answer| %>
+  <p>
+    名前: <br>
+    <%= answer.name %>
+  </p>
+  <p>
+    本文: <br>
+    <%= answer.content %>
+  </p>
+  <p>
+    <%= link_to '回答削除',[answer.question, answer] ,
+    data: {turbo_method: 'delete', turbo_confirm: '本当に削除しますか?'}%>
+  </p>
+<% end %>
+
+<h2>回答入力</h2>
+<%= form_with model: [@question, @question.answers.build] do |form| %>
+  <div>
+    <%= form.label :名前 %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :本文 %>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to '一覧表示に戻る', questions_path %>
