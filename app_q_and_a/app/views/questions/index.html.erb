@@ -1,0 +1,17 @@
+<h1>質問一覧</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>content</th>
+  </tr>
+  <% @questions.each do |question| %> <%#>questionsに格納された複数のレコードをeach関数で変数questionに格納,TODO: each文法復習<%>
+    <tr>
+      <td><%= question.id %></td>
+      <td><%= question.title %></td>
+      <td><%= question.name %></td>
+      <td><%= question.content %></td>
+      <td><%= link_to 'show', question_path(question) %></td>
+    </tr>
+  <% end %>
+</table>
