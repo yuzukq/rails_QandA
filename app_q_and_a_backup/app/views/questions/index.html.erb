@@ -1,24 +1,17 @@
-<h1>質問一覧</h1>
-<%= link_to '新規投稿', new_question_path %>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>タイトル</th>
-    <th>名前</th>
-    <th>本文</th>
-  </tr>
-  <% @questions.each do |question| %> <%#>questionsに格納された複数のレコードをeach関数で変数questionに格納,TODO: each文法復習<%>
-    <tr>
-      <td><%= question.id %></td>
-      <td><%= question.title %></td>
-      <td><%= question.name %></td>
-      <td><%= question.content %></td>
-      <td><%= link_to '詳細', question_path(question) %></td>
-      <td><%= link_to '編集', edit_question_path(question) %></td>
-      <td><%= link_to '削除', question_path(question),
-        data: { turbo_method: 'delete', 
-        turbo_confirm: '本当に削除しますか?'} %>
-      </td>
-    </tr>
+<div class="question-form">
+  <%= form_with(model: question, local: true) do |f| %>
+    <div class="form-group">
+      <%= f.label :title, 'タイトル', class: 'form-label' %>
+      <%= f.text_field :title, class: 'form-input' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :content, '内容', class: 'form-label' %>
+      <%= f.text_area :content, class: 'form-textarea' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit '保存', class: 'submit-button' %>
+    </div>
   <% end %>
-</table>
+</div>
